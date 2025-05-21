@@ -1,3 +1,5 @@
-from gtts import gTTS
-# from playsound3 import playsound
-# import tempfile
+  # elif 'github' in command:
+    #     github = command.replace("github", "")
+    #     url = f"https://github.com/FERDOUS631"
+    #     speak(f"yes sir, Opening your github")
+    #     webbrowser.open(url)
