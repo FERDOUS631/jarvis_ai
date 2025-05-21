@@ -4,7 +4,7 @@ import datetime
 import pywhatkit
 import wikipedia
 import webbrowser
-
+import time
 # Voice recognizer and text-to-speech setup
 recognizer = sr.Recognizer()
 jarvis = pyttsx3.init()
@@ -29,7 +29,8 @@ def take_command():
             if 'jarvis' in command:
                 command = command.replace('jarvis', '').strip()
     except Exception as e:
-        print("❌ Could not understand. Error:", e)
+        print("❌ Sorry sir, I didn't catch that. Could you please repeat?", e)
+        speak("Sorry sir, I didn't catch that. Could you please repeat?")
     return command
 
 
@@ -49,19 +50,22 @@ def run_jarvis():
         pywhatkit.playonyt(song)
 
     elif 'portfolio' in command:
-        speak("Opening your portfolio")
+        speak("yes sir, Opening your portfolio")
         webbrowser.open("https://ferdousprotfolio.netlify.app/")
 
     elif 'facebook' in command:
-        speak("Opening Facebook profile")
+        speak("yes sir, Opening Facebook profile")
         webbrowser.open("https://www.facebook.com/ferdous.reza.568")
+    elif 'whatsapp' in command:
+        speak("yes sir ,Opening WhatsApp")
+        webbrowser.open("https://web.whatsapp.com/")
 
     elif 'github' in command:
-        speak("Opening GitHub profile")
+        speak(" yes sir, Opening GitHub profile")
         webbrowser.open("https://github.com/FERDOUS631")
 
     elif 'open google' in command:
-        speak("Opening Google")
+        speak("yes sir, Opening Google")
         webbrowser.open("https://www.google.com")
 
     elif 'who is' in command or 'tell me' in command:
@@ -70,14 +74,16 @@ def run_jarvis():
             print(info)
             speak(info)
         except:
-            speak("Sorry, I couldn't find anything on that topic.")
+            speak("Sorry sir, I couldn't find anything on that topic.")
     elif 'exit' in command or 'quit' in command or 'stop' in command:
         speak("okk.Goodbye sir!")
         exit()
     else:
-        speak("Searching that for you")
+        speak("okk sir ,i'm searching for you")
         pywhatkit.search(command)
 speak("Hi I am jarvis.How can I assist you today?")
 # Main loop
+time.sleep(2)
+speak("I am ready to assist you")
 while True:
     run_jarvis()
